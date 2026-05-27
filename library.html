@@ -1,59 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Helle Library</title>
+<meta charset="UTF-8">
+<title>Helle Library</title>
 
-  <style>
+<style>
 
-   body {
+body {
   margin: 0;
   overflow: hidden;
 }
 
+/* 스와이프 컨테이너 */
 .library {
   display: flex;
-  width: 400vw; /* 화면 4개 */
+  width: 300vw;
   height: 100vh;
 
-  overflow-x: scroll;
+  overflow-x: auto;
+  overflow-y: hidden;
+
   scroll-snap-type: x mandatory;
 }
 
+/* 각 방 */
 .room {
   width: 100vw;
   height: 100vh;
 
   flex-shrink: 0;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 
-  font-size: 40px;
-  color: white;
-}
-
-/* 스냅 (딱딱 끊기게 이동) */
-.room {
   scroll-snap-align: start;
 }
-  </style>
+
+/* 영상 */
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 텍스트 (임시) */
+.placeholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 40px;
+}
+
+</style>
 </head>
 
 <body>
 
-  <div class="world">
+<div class="library">
 
+  <section class="room">
     <video autoplay loop muted playsinline class="bg-video">
       <source src="library.mp4" type="video/mp4">
     </video>
+  </section>
 
-    <audio autoplay loop id="bgm">
-      <source src="library_noise.mp3" type="audio/mpeg">
-    </audio>
+  <section class="room">
+    <div class="placeholder">서고</div>
+  </section>
 
-  </div>
+  <section class="room">
+    <div class="placeholder">열람실</div>
+  </section>
+
+</div>
+
+<audio autoplay loop id="bgm">
+  <source src="library_noise.mp3" type="audio/mpeg">
+</audio>
 
 </body>
 </html>
