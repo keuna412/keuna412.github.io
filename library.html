@@ -8,7 +8,8 @@
 
 body {
   margin: 0;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 /* 스와이프 컨테이너 */
@@ -21,6 +22,8 @@ body {
   overflow-y: hidden;
 
   scroll-snap-type: x mandatory;
+
+  -webkit-overflow-scrolling: touch;
 }
 
 /* 각 방 */
