@@ -8,37 +8,18 @@
 
 body {
   margin: 0;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: hidden;
+  background: black;
 }
 
-/* 스와이프 컨테이너 */
-.library {
-  display: flex;
-  width: 300vw;
-  height: 100vh;
-
-  overflow-x: auto;
-  overflow-y: hidden;
-
-  scroll-snap-type: x mandatory;
-
-  -webkit-overflow-scrolling: touch;
-}
-
-/* 각 방 */
-.room {
+/* 한 화면 고정 */
+.world {
   width: 100vw;
   height: 100vh;
-
-  flex-shrink: 0;
-
   position: relative;
-
-  scroll-snap-align: start;
 }
 
-/* 영상 */
+/* 영상 전체 보이기 */
 .bg-video {
   width: 100%;
   height: 100%;
@@ -46,12 +27,11 @@ body {
   background-color: black;
 }
 
-/* 텍스트 (임시) */
+/* 텍스트 */
 .placeholder {
   position: absolute;
   top: 50%;
   left: 50%;
-
   transform: translate(-50%, -50%);
   color: white;
   font-size: 40px;
@@ -62,13 +42,13 @@ body {
 
 <body>
 
-<div class="library">
+<div class="world">
 
-  <section class="room">
-    <video autoplay loop muted playsinline class="bg-video">
-      <source src="library.mp4" type="video/mp4">
-    </video>
-  </section>
+  <video autoplay loop muted playsinline class="bg-video">
+    <source src="library.mp4" type="video/mp4">
+  </video>
+
+  <div class="placeholder">Helle Library</div>
 
 </div>
 
