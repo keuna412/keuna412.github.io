@@ -7,6 +7,7 @@
   <title>Helle Library</title>
 
   <style>
+
 body {
   margin: 0;
   overflow: hidden;
@@ -46,13 +47,31 @@ body {
 
   transform: translate(-50%, -50%);
   cursor: pointer;
+
+  /* 🔥 추가 */
+  transition:
+    transform 0.25s,
+    filter 0.25s;
+}
+
+/* 🔥 hover 효과 추가 */
+.spaceship:hover {
+  filter:
+    brightness(1.25)
+    drop-shadow(0 0 12px rgba(255,255,255,0.45));
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.08);
 }
 
 /* 📱 모바일 대응 */
 @media (max-width: 768px) {
+
   :root {
     --scale: 0.45;
   }
+
 }
 
   </style>
