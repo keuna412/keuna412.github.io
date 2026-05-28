@@ -16,15 +16,70 @@ body {
   width: 100vw;
   height: 100vh;
   position: relative;
-  overflow: hidden
+  overflow: hidden;
 }
 
 /* 영상 전체 보이기 */
 .bg-video {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   background-color: black;
+}
+
+/* 아이콘 UI */
+.icon-controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 20;
+}
+
+.icon-controls img {
+  width: 85px;
+  height: 85px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+
+.icon-controls img:hover {
+  opacity: 1;
+  transform: scale(1.15);
+
+  @media (max-width: 768px) {
+
+  /* 아이콘 위치 살짝 여유 */
+  .icon-controls {
+    top: 15px;
+    left: 15px;
+    gap: 10px;
+  }
+
+  /* 아이콘 크기 줄이기 (핵심) */
+  .icon-controls img {
+    width: 55px;
+    height: 55px;
+  }
+
+  /* 터치 안정성 */
+  .icon-controls img {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* 안전 영역 (노치 대응) */
+.icon-controls {
+  padding-top: env(safe-area-inset-top);
+  padding-left: env(safe-area-inset-left);
+}
+
+/* 가독성 강화 (배경 겹침 방지) */
+.icon-controls img {
+  filter: drop-shadow(0 0 6px rgba(0,0,0,0.6));
 }
 
 </style>
@@ -34,15 +89,99 @@ body {
 
 <div class="world">
 
+  <!-- 영상 -->
   <video autoplay loop muted playsinline class="bg-video">
     <source src="library.mp4" type="video/mp4">
   </video>
 
+  <!-- 아이콘 -->
+  <div class="icon-controls">
+    <img src="assets/icons/all.png" onclick="setMode('all')">
+    <img src="assets/icons/headset.png" onclick="setMode('music')">
+    <img src="assets/icons/speaker.png" onclick="setMode('noise')">
+  </div>
+
 </div>
 
-<audio autoplay loop id="bgm">
-  <source src="library_noise.mp3" type="audio/mpeg">
+<!-- 오디오 3개 -->
+<audio id="music" loop>
+  <source src="assets/audio/music.mp3" type="audio/mpeg">
 </audio>
+
+<audio id="noise" loop>
+  <source src="assets/audio/noise.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="mix" loop>
+  <source src="assets/audio/mix.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const music = document.getElementById("music");
+const noise = document.getElementById("noise");
+const mix = document.getElementById("mix");
+
+let unlocked = false;
+
+/* 🔥 오디오 unlock (핵심 수정됨) */
+async function unlockAudioOnce() {
+  if (unlocked) return;
+
+  music.volume = 0;
+  noise.volume = 0;
+  mix.volume = 0;
+
+  try {
+    await music.play();
+    music.pause();
+
+    await noise.play();
+    noise.pause();
+
+    await mix.play();
+    mix.pause();
+  } catch (e) {
+    console.log("unlock failed:", e);
+  }
+
+  music.volume = 1;
+  noise.volume = 1;
+  mix.volume = 1;
+
+  unlocked = true;
+}
+
+/* 모든 소리 정지 */
+function stopAll() {
+  music.pause();
+  noise.pause();
+  mix.pause();
+}
+
+/* 🔥 모드 변경 (순서 보장 수정) */
+async function setMode(mode) {
+  await unlockAudioOnce();
+
+  stopAll();
+
+  if (mode === "all") {
+    mix.currentTime = 0;
+    mix.play();
+  }
+
+  else if (mode === "music") {
+    music.currentTime = 0;
+    music.play();
+  }
+
+  else if (mode === "noise") {
+    noise.currentTime = 0;
+    noise.play();
+  }
+}
+
+</script>
 
 </body>
 </html>
