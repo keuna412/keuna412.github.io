@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="icon" type="image/jpeg" href="favicon.jpg">
+
 <style>
 
 body {
@@ -57,9 +59,14 @@ body {
 .icon-controls img:hover {
   opacity: 1;
   transform: scale(1.15);
-
+}
   @media (max-width: 768px) {
 
+.music-credit {
+  font-size: 9px;
+  left: 10px;
+  bottom: 10px;
+}
   /* 아이콘 위치 살짝 여유 */
   .icon-controls {
     top: 15px;
@@ -69,8 +76,8 @@ body {
 
   /* 아이콘 크기 줄이기 (핵심) */
   .icon-controls img {
-    width: 70px; !important;
-    height: 70px; !important;
+    width: 70px !important;
+    height: 70px !important;
   }
 
   /* 터치 안정성 */
@@ -90,6 +97,25 @@ body {
   filter: drop-shadow(0 0 6px rgba(0,0,0,0.6));
 }
 
+.music-credit {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+
+  line-height: 1.5;
+  z-index: 20;
+
+  text-shadow: 0 0 6px rgba(0,0,0,0.8);
+}
+
+.credit-title {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: rgba(255,255,255,0.9);
+}
 </style>
 </head>
 
@@ -107,6 +133,18 @@ body {
     <img src="assets/icons/all.png" onclick="setMode('all')">
     <img src="assets/icons/headset.png" onclick="setMode('music')">
     <img src="assets/icons/speaker.png" onclick="setMode('noise')">
+  </div>
+ 
+  <!-- 음악 정보 -->
+  <div class="music-credit">
+    <div class="credit-title">Library Sound Archive</div>
+
+    <div>Russian River — Dan Henig</div>
+    <div>Beyond — Patrick Patrikios</div>
+    <div>Lights — Patrick Patrikios</div>
+    <div>Nebula — The Grey Room & Density & Time</div>
+    <div>Singularity — The Grey Room & Density & Time</div>
+    <div>In The Throes — Asher Fulero</div>
   </div>
 
 </div>
