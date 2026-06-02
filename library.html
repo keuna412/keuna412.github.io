@@ -66,10 +66,6 @@ body {
 }
   @media (max-width: 768px) {
 
-.music-credit {
-  font-size: 9px;
-  left: 10px;
-  bottom: 10px;
 }
   /* 아이콘 위치 살짝 여유 */
   .icon-controls {
@@ -88,7 +84,6 @@ body {
   .icon-controls img {
     -webkit-tap-highlight-color: transparent;
   }
-}
 
 /* 안전 영역 (노치 대응) */
 .icon-controls {
@@ -119,6 +114,13 @@ body {
   margin-bottom: 8px;
   font-weight: bold;
   color: rgba(255,255,255,0.9);
+}
+
+/* 모바일에서는 출처 숨기기 */
+@media (max-width: 768px) {
+  .music-credit {
+    display: none;
+  }
 }
 </style>
 </head>
