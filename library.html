@@ -57,7 +57,7 @@ body {
   z-index: 20;
 }
 
-.icon-controls img {
+.icon-controls a img {
   width: 85px;
   height: 85px;
   cursor: pointer;
@@ -100,7 +100,27 @@ body {
 .icon-controls img {
   filter: drop-shadow(0 0 6px rgba(0,0,0,0.6));
 }
+.admin-btn {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
 
+  z-index: 30;
+
+  display: block;
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
+}
+
+.admin-btn img {
+  width: 70px;
+  height: 70px;
+}
+
+.admin-btn:hover {
+  transform: scale(1.1);
+}
 .music-credit {
   position: absolute;
   bottom: 20px;
@@ -214,6 +234,11 @@ body {
     <img src="assets/icons/all.png" onclick="setMode('all')">
     <img src="assets/icons/headset.png" onclick="setMode('music')">
     <img src="assets/icons/speaker.png" onclick="setMode('noise')">
+</div>
+
+<a href="admin.html" class="admin-btn">
+  <img src="assets/icons/admin.png">
+</a>
   </div>
  
   <!-- 음악 정보 -->
