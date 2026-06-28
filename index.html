@@ -17,12 +17,18 @@
   
   <style>
 
+@font-face {
+  font-family: "Galmuri";
+  src: url("fonts/Galmuri.ttf") format("truetype");
+}
 body {
   margin: 0;
   overflow: hidden;
   height: 100vh;
   background-color: rgb(32, 22, 45);
   position: relative;
+
+  font-family: "Galmuri", sans-serif;
 }
 
 /* 기본 스케일 변수 */
@@ -39,9 +45,47 @@ body {
   left: 50%;
   transform: translate(-50%, -50%) scale(var(--scale));
 
-  background-image: url("HL00_.jpg");
+  background-image: url("HL00.jpg");
   background-size: cover;
   background-position: center;
+}
+
+.welcome-title h1 {
+
+  margin: 0;
+
+  font-size: 59px;
+
+}
+.welcome-description p {
+
+  margin: 0;
+
+  font-size: 28px;
+
+  line-height: 1.4;
+
+}
+.welcome-title,
+.welcome-description {
+
+  color: #F7F0B5;
+
+  text-align: center;
+
+}
+.welcome-title {
+  position: absolute;
+    width: 100%;
+    top: 240px;
+    text-align: center;
+}
+
+.welcome-description {
+  position: absolute;
+    width: 100%;
+    top: 675px;
+    text-align: center;
 }
 
 /* 우주선 */
@@ -51,7 +95,7 @@ body {
   max-width: 260px;
 
   position: absolute;
-  top: 49%;
+  top: 46%;
   left: 56%;
 
   transform: translate(-50%, -50%);
@@ -89,7 +133,18 @@ body {
 <body>
 
   <div class="world">
+  
+<div class="welcome-title">
+  <h1>Welcome to Helle Library!</h1>
+</div>
 
+<div class="welcome-description">
+  <p>
+    This is Earth's Neighborhood Space Library.<br>
+    You can come in and study, work or relax.<br>
+    Please click on the spacecraft to enter.
+  </p>
+</div>
     <a href="library.html">
       <img src="spaceship.gif" class="spaceship">
     </a>
