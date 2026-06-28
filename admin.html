@@ -36,6 +36,14 @@
       object-fit: cover;
       z-index: 0;
     }
+
+    @media (max-width: 768px) {
+
+  .background-video {
+    object-fit: cover;
+    object-position: left center;
+  }
+}
     .contact {
   position: absolute;
   top: 12%;
@@ -95,18 +103,6 @@
 
 .admin-btn:hover {
   transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-
-  .speech-bubble,
-  .PrivacyPolicy {
-    width: 90vw !important;
-    font-size: 14px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-  }
-
 }
   </style>
 
