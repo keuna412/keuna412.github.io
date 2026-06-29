@@ -65,7 +65,8 @@ body {
   transition: 0.2s;
 }
 
-.icon-controls img:hover {
+.icon-controls img:hover,
+.icon-controls img.active {
   opacity: 1;
   transform: scale(1.1);
 }
@@ -158,7 +159,7 @@ body {
 
     position:absolute;
 
-    top:120px;
+    top:100px;
     left:16px;
 
     width:620px;
@@ -289,9 +290,9 @@ body {
 
   <!-- 아이콘 -->
   <div class="icon-controls">
-    <img src="assets/icons/all.png" onclick="setMode('all')">
-    <img src="assets/icons/headset.png" onclick="setMode('music')">
-    <img src="assets/icons/speaker.png" onclick="setMode('noise')">
+    <img class="mode-all" src="assets/icons/all.png" onclick="setMode('all')">
+    <img class="mode-music" src="assets/icons/headset.png" onclick="setMode('music')">
+    <img class="mode-noise" src="assets/icons/speaker.png" onclick="setMode('noise')">
 </div>
 
 <a href="admin.html" class="admin-btn">
@@ -320,10 +321,11 @@ body {
      <h2>About Helle Library</h2>
 
       <p>
-        Press the icons on the top left to listen to music
-        or white noise. Also, click the smartphone icon
-        on the bottom right if you have any questions.
-        Then, I hope you have a good work, and a good rest.<br> 
+        Press the icons on the top left to<br> 
+        listen to music or white noise. Also,<br> 
+        click the smartphone icon on the bottom<br> 
+        right if you have any questions. Then,<br> 
+        I hope you have a good work, and a good rest.<br> 
         Enjoy your time at the Helle Library!
                 
       </p>
@@ -399,17 +401,25 @@ async function setMode(mode) {
 
   stopAll();
 
+// 버튼 강조 초기화
+document.querySelectorAll(".icon-controls img").forEach(img => {
+  img.classList.remove("active");
+});
+
   if (mode === "all") {
+    document.querySelector(".mode-all").classList.add("active");
     mix.currentTime = 0;
     mix.play();
   }
 
   else if (mode === "music") {
+    document.querySelector(".mode-music").classList.add("active");
     music.currentTime = 0;
     music.play();
   }
 
   else if (mode === "noise") {
+    document.querySelector(".mode-noise").classList.add("active");
     noise.currentTime = 0;
     noise.play();
   }
