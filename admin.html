@@ -39,47 +39,36 @@
 
 @media (max-width:768px){
 
-/* 영상 왼쪽 부분만 보이도록 확대 */
 .background-video{
+    position: fixed;
 
-    width:170vw;
-    height:100vh;
+    top: 0;
+    left: 0;
 
-    left:-20vw;
-    top:0;
+    width: auto;
+    height: 100vh;
 
-    object-fit:cover;
-
+    object-fit: contain;
+    object-position: left center;
 }
 
-/* Contact */
 .contact{
-
-    top:10%;
-    left:14%;
-
-    font-size:19px;
-    transform:translate(-50%, -50%);
-}
+    top:12%;
+    left:35%;
+    font-size:22px;
 }
 
-/* 이메일 */
 .email{
-
-    top:33%;
-    left:24%;
-    transform:translate(-50%, -50%);
-    font-size:16px;
-
+    top:29%;
+    left:38%;
+    font-size:18px;
 }
 
-/* 개인정보 처리방침 숨기기 */
 .PrivacyPolicy{
-
     display:none;
-
 }
 
+}
     .contact {
   position: absolute;
   top: 12%;
