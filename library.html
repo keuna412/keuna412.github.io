@@ -150,96 +150,61 @@ body {
     display: none;
   }
  
-  .about-popup {
-    width: 90vw;
-    max-width: 350px;
-    max-height: 80vh;
+  /* 창 크기 */
+.about-window{
 
-    padding: 20px;
+    width:340px;
+    height:auto;
 
-    overflow-y: auto;
-  }
+}
 
-  .about-popup h2{
+/* 배경 이미지도 같이 줄어듦 */
+.about-window img{
+
+    width:100%;
+    height:auto;
+
+}
+
+/* 글 위치 */
+.about-content{
+
+    top:65px;
+    left:15px;
+
+    width:310px;
+
+}
+
+/* 제목 */
+.about-content h2{
+
     font-size:20px;
-  }
 
-  .about-popup p{
+    margin-bottom:15px;
+
+}
+
+/* 본문 */
+.about-content p{
+
     font-size:14px;
-    line-height:1.6;
-  }
+
+    line-height:1.5;
 
 }
 
-.about-popup{
+/* 닫기 버튼 */
+.close-area{
 
-    position: fixed;
+    width:28px;
+    height:28px;
 
-    inset: 0;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    z-index:999;
-}
-  .about-window{
-
-    position: relative;
-
-    width: 650px;
-    height: 455px;
-}
-    .about-window img{
-
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    image-rendering: pixelated;
-}
-    .about-content{
-
-    position:absolute;
-
-    top:120px;
-    left:16px;
-
-    width:620px;
-
-    color:#F7F0B5;
-
-    text-align: center;
-}
-     .about-content h2{
-
-    margin:0 0 25px 0;
-
-    font-size:29px;
+    top:18px;
+    right:18px;
 
 }
-    .about-content p{
 
-    margin:0;
-
-    font-size:20px;
-
-    line-height:1.6;
-
-}
-    .close-area{
-
-    position:absolute;
-
-    top:32px;
-    right:32px;
-
-    width:42px;
-    height:42px;
-
-    cursor:pointer;
 }
 </style>
 </head>
