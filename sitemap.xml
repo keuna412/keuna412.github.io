@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://keuna412.github.io/helle-library/</loc>
+    <loc>https://keuna412.github.io/</loc>
   </url>
 
   <url>
-    <loc>https://keuna412.github.io/helle-library/library.html</loc>
+    <loc>https://keuna412.github.io/library.html</loc>
+  </url>
+
+  <url>
+    <loc>https://keuna412.github.io/admin.html</loc>
   </url>
 
 </urlset>
